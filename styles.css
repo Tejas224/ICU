@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.date-time {
+    font-size: 18px;
+}
+
+.user-profile {
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+}
+
+.dashboard {
+    margin-bottom: 20px;
+}
+
+.patient-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.patient-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 200px;
+}
+
+.patient-card h3 {
+    margin: 0;
+}
+
+.patient-card p {
+    margin: 5px 0;
+}
+
+.alerts {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alerts h2 {
+    margin: 0 0 10px;
+}
+
+.alerts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.alerts li {
+    color: white;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.alerts li.high {
+    background-color: #ff4d4d; /* Red for high priority */
+}
+
+.alerts li.medium {
+    background-color: #ffc107; /* Yellow for medium priority */
+    color: black;
+}
+
+.alerts li.low {
+    background-color: #28a745; /* Green for low priority */
+}
+
+.nurse-dashboard {
+    display: flex;
+    gap: 20px;
+}
+
+.available-patients {
+    flex: 1;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.available-patients ul {
+    list-style: none;
+    padding: 0;
+}
+
+.available-patients li {
+    margin: 5px 0;
+}
+
+.available-patients li a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.available-patients li a:hover {
+    background-color: #f0f0f0;
+}
+
+.patient-details {
+    flex: 2;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* STYLES for Vital Sign Status Indicators */
+.vital-normal {
+    color: #28a745; /* Green */
+    font-weight: bold;
+}
+
+.vital-warning {
+    color: #ffc107; /* Yellow/Orange */
+    font-weight: bold;
+}
+
+.vital-danger {
+    color: #dc3545; /* Red */
+    font-weight: bold;
+}

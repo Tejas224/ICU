@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ICU Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Smart ICU</div>
+        <div class="date-time" id="dateTime"></div>
+        <div class="user-profile">User Profile</div>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <h1>Patient Dashboard</h1>
+            <div class="patient-cards" id="patientCards">
+                </div>
+        </section>
+
+        <section class="alerts">
+            <h2>Active Alerts</h2>
+            <ul id="alertList">
+                </ul>
+        </section>
+    </main>
+    <section class="nurse">
+        <h2>Nurse Overview</h2>
+        <div class="nurse-dashboard">
+            <div class="available-patients">
+                <h3>Available Patients</h3>
+                <ul>
+                   <li><a href="#">Tejas Patil</a></li>
+                    <li><a href="#">Sakshi Bandbe</a></li>
+                    <li><a href="#">Darshan Kharat</a></li>
+                    <li><a href="#">Siddharth Patil</a></li>
+                    <li><a href="#">Shivam Patil</a></li>   
+                    <li><a href="#">Shiva Patil</a></li>
+                </ul>
+            </div>
+            <div class="patient-details">
+                <h3>Patient Details</h3>
+                <div id="patientDetails">
+                    <p>Select a patient to view details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="doctor">
+        <h2>Doctor Overview</h2>
+        <div class="doctor-dashboard">
+            <div class="patient-history">
+                <h3>Patient History</h3>
+                <p>Select a patient to view history.</p>
+            </div>
+            <div class="treatment-plans">
+                <h3>Treatment Plans</h3>
+                <p>Select a patient to view treatment plans.</p>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
