@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ICU Mobile Access</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mobile-body">
+    <main class="mobile-main">
+        <section class="mobile-access-card">
+            <h1>Smart ICU Mobile Access</h1>
+            <p class="muted">Enter the approved mobile number and patient access code to view live patient data from any connected device.</p>
+            <div class="mobile-login">
+                <input id="mobilePhone" type="tel" placeholder="Approved phone number">
+                <input id="mobileCode" type="text" placeholder="Access code">
+                <button id="mobileAccessBtn" type="button">View Patient Data</button>
+            </div>
+            <div id="mobileStatus" class="api-status api-demo">Waiting for access details.</div>
+            <div id="mobilePatientResult" class="chat-answer">
+                <p>No patient loaded yet.</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        const phoneInput = document.getElementById("mobilePhone");
+        const codeInput = document.getElementById("mobileCode");
+        const statusEl = document.getElementById("mobileStatus");
+        const resultEl = document.getElementById("mobilePatientResult");
+        const buttonEl = document.getElementById("mobileAccessBtn");
+
+        function setStatus(message, live) {
+            statusEl.textContent = message;
+            statusEl.className = `api-status ${live ? "api-live" : "api-demo"}`;
+        }
+
+        async function loadPatientForMobile() {
+            buttonEl.disabled = true;
+            buttonEl.textContent = "Loading...";
+            setStatus("Checking patient access...", false);
+
+            try {
+                const response = await fetch("/api/patient-access", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        phone: phoneInput.value.trim(),
+                        code: codeInput.value.trim().toUpperCase()
+                    })
+                });
+
+                const result = await response.json();
+                if (!response.ok) {
+                    throw new Error(result.error || "Access failed.");
+                }
+
+                const patient = result.patient;
+                resultEl.innerHTML = `
+                    <h2>${patient.name}</h2>
+                    <p>Room: ${patient.room}</p>
+                    <p>Heart Rate: ${patient.heartRate} bpm</p>
+                    <p>Blood Pressure: ${patient.bloodPressure}</p>
+                    <p>Oxygen: ${patient.oxygen}%</p>
+                    <p>AI Risk: ${patient.aiRisk}</p>
+                    <p>Treatment Plan: ${patient.treatmentPlan}</p>
+                    <p>Last Updated: ${patient.lastUpdated || "Live session"}</p>
+                `;
+                setStatus("Patient access granted.", true);
+            } catch (error) {
+                resultEl.innerHTML = `<p>${error.message}</p>`;
+                setStatus("Access denied or server unreachable.", false);
+            } finally {
+                buttonEl.disabled = false;
+                buttonEl.textContent = "View Patient Data";
+            }
+        }
+
+        buttonEl.addEventListener("click", loadPatientForMobile);
+    </script>
+</body>
+</html>

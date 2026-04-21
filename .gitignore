@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+patients.json
+http.err.log
+http.out.log
+server.err.log
+server.out.log

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ICU Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Smart ICU</div>
+        <div class="date-time" id="dateTime"></div>
+        <div class="user-profile">Clinician Console</div>
+    </header>
+
+    <main>
+        <section class="input-panel">
+            <h2>Patient Intake + Secure Phone Access</h2>
+            <p class="muted">Add a patient once, then share the generated access code with that patient's approved phone.</p>
+            <p class="muted">Mobile page for patient/family access: <strong>/mobile.html</strong></p>
+            <form id="patientForm" class="patient-form">
+                <input id="pName" type="text" placeholder="Patient Name" required>
+                <input id="pAge" type="number" placeholder="Age" min="0" max="120" required>
+                <input id="pRoom" type="text" placeholder="Room" required>
+                <input id="pPhone" type="tel" placeholder="Approved Phone (e.g. +1...)" required>
+                <input id="pHeartRate" type="number" placeholder="Heart Rate" min="40" max="180" required>
+                <input id="pBloodPressure" type="text" placeholder="Blood Pressure (e.g. 120/80)" required>
+                <input id="pOxygen" type="number" placeholder="SpO2" min="70" max="100" required>
+                <button type="submit">Add Patient</button>
+            </form>
+            <div id="formStatus" class="form-status"></div>
+        </section>
+
+        <section class="dashboard">
+            <h1>Live ICU Dashboard</h1>
+            <div class="patient-cards" id="patientCards"></div>
+        </section>
+
+        <section class="alerts ai-alerts">
+            <h2>Active Alerts</h2>
+            <ul id="alertList"></ul>
+        </section>
+
+        <section class="agent">
+            <h2>Agentic AI Triage Feed</h2>
+            <p class="muted">Use demo logic now, or connect a real API-backed triage assistant with `OPENAI_API_KEY`.</p>
+            <div class="agent-toolbar">
+                <button id="runTriageBtn" type="button">Run AI Triage For All Patients</button>
+                <span id="apiStatus" class="api-status">Checking AI mode...</span>
+            </div>
+            <ul id="agentFeed" class="agent-feed"></ul>
+        </section>
+
+        <section class="phone-viewer">
+            <h2>Phone Viewer (Patient/Family Access)</h2>
+            <p class="muted">Only users with the approved phone number and access code can view the patient card.</p>
+            <div class="phone-login">
+                <input id="viewerPhone" type="tel" placeholder="Phone number">
+                <input id="viewerCode" type="text" placeholder="Access code">
+                <button id="viewPatientBtn" type="button">View My Patient</button>
+            </div>
+            <div id="viewerResult" class="viewer-result">
+                <p>Enter phone + code to see patient live vitals.</p>
+            </div>
+        </section>
+
+        <section class="nurse">
+            <h2>Nurse Overview</h2>
+            <div class="nurse-dashboard">
+                <div class="available-patients">
+                    <h3>Available Patients</h3>
+                    <ul id="patientList"></ul>
+                </div>
+                <div class="patient-details">
+                    <h3>Patient Details</h3>
+                    <div id="patientDetails">
+                        <p>Select a patient to view details.</p>
+                    </div>
+                    <div class="recommendation-panel">
+                        <div class="recommendation-actions">
+                            <button id="getHealthRecommendationBtn" type="button">Get AI Health Recommendation</button>
+                            <span id="recommendationStatus" class="api-status">Select a patient to request a recommendation.</span>
+                        </div>
+                        <div id="recommendationResult" class="chat-answer">
+                            <p>No recommendation requested yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="doctor">
+            <h2>Doctor Overview</h2>
+            <div class="doctor-dashboard">
+                <div class="patient-history">
+                    <h3>Patient History</h3>
+                    <p>Select a patient to view history.</p>
+                </div>
+                <div class="treatment-plans">
+                    <h3>Treatment Plans</h3>
+                    <p>Select a patient to view treatment plans.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="agent">
+            <h2>Patient AI Assistant</h2>
+            <p class="muted">Select a patient, then ask for a handoff summary, next-step guidance, or a focused risk explanation.</p>
+            <div class="chat-panel">
+                <textarea id="chatQuestion" rows="4" placeholder="Example: What should the nurse watch for in the next 10 minutes?"></textarea>
+                <div class="chat-actions">
+                    <button id="askPatientBtn" type="button">Ask AI About Selected Patient</button>
+                    <span id="chatStatus" class="api-status">Choose a patient to start.</span>
+                </div>
+                <div id="chatAnswer" class="chat-answer">
+                    <p>No patient question submitted yet.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.mobile-body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.mobile-main {
+    width: min(100%, 540px);
+}
+
+.mobile-access-card {
+    background-color: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+.mobile-login {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.mobile-login input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.mobile-login button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.date-time {
+    font-size: 16px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+}
+
+.input-panel,
+.alerts,
+.agent,
+.phone-viewer,
+.available-patients,
+.patient-details,
+.patient-history,
+.treatment-plans,
+.patient-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.muted {
+    color: #64748b;
+    font-size: 0.92rem;
+}
+
+.patient-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.patient-form input,
+.phone-login input {
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+.patient-form button,
+.phone-login button,
+.regen-code-btn,
+#runTriageBtn,
+#askPatientBtn,
+#getHealthRecommendationBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.regen-code-btn {
+    background-color: #1d4ed8;
+}
+
+.regen-code-btn:hover {
+    background-color: #1e40af;
+}
+
+.patient-form button:hover,
+.phone-login button:hover,
+#runTriageBtn:hover,
+#askPatientBtn:hover,
+#getHealthRecommendationBtn:hover {
+    background-color: #005fcc;
+}
+
+.agent-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.api-status {
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.api-live {
+    color: #166534;
+}
+
+.api-demo {
+    color: #92400e;
+}
+
+.agent-source {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.chat-panel {
+    display: grid;
+    gap: 12px;
+}
+
+.chat-panel textarea {
+    width: 100%;
+    min-height: 110px;
+    resize: vertical;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+.chat-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.chat-answer {
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 14px;
+    line-height: 1.5;
+}
+
+.recommendation-panel {
+    margin-top: 14px;
+    display: grid;
+    gap: 12px;
+}
+
+.recommendation-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-status {
+    margin-top: 10px;
+    font-weight: 700;
+    color: #0f766e;
+}
+
+.patient-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.patient-card {
+    width: 220px;
+}
+
+.secure-code {
+    color: #1d4ed8;
+    font-size: 0.9rem;
+}
+
+.alerts ul,
+.agent-feed,
+.available-patients ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alerts li,
+.agent-feed li {
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.alerts li.high,
+.risk-high {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.alerts li.medium,
+.risk-medium {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.alerts li.low,
+.risk-low {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.phone-login {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.viewer-result .denied {
+    color: #b91c1c;
+    font-weight: 700;
+}
+
+.phone-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    background: #f8fafc;
+}
+
+.nurse-dashboard,
+.doctor-dashboard {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.available-patients {
+    flex: 1;
+    min-width: 240px;
+}
+
+.available-patients li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.available-patients li a:hover,
+.available-patients li a.active {
+    background-color: #eaf3ff;
+}
+
+.patient-details,
+.patient-history,
+.treatment-plans {
+    flex: 2;
+    min-width: 260px;
+}
+
+.vital-normal {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.vital-warning {
+    color: #d97706;
+    font-weight: bold;
+}
+
+.vital-danger {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .phone-login {
+        flex-direction: column;
+    }
+
+    .agent-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
